@@ -1,4 +1,5 @@
 <template>
+<div style="background: #879a02">
   <v-container fluid>
       <v-row aligne="center" justify="center" >
           <v-col cols="12" sm="10">
@@ -160,6 +161,8 @@
           </v-col>
       </v-row>
   </v-container>
+  
+</div>
 </template>
 
 <script>
@@ -183,7 +186,6 @@ import axios from 'axios';
   //   }
   // },
 
-  
   methods:{
 
     async loginStudent() {
@@ -248,8 +250,12 @@ import axios from 'axios';
   }
 </script>
 <style scoped>
+*{
+  overflow: hidden;
+}
 .v-application .rounded-bl-xl {
     border-bottom-left-radius: 300px !important;
+    
 }
 .v-application .rounded-br-xl {
     border-bottom-right-radius: 300px !important;
