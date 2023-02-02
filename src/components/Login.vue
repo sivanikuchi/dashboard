@@ -1,5 +1,5 @@
 <template>
-<div style="background: #879a02">
+<div >
   <v-container fluid>
       <v-row aligne="center" justify="center" >
           <v-col cols="12" sm="10">
@@ -32,9 +32,9 @@
                             outlined
                             dense
                             color="blue"
-                          autocomplete="false"
-                           type="password"
-                           v-model="loginPassword"
+                            autocomplete="false"
+                            type="password"
+                            v-model="loginPassword"
                           
                           />
                             <v-row>
@@ -250,9 +250,7 @@ import axios from 'axios';
   }
 </script>
 <style scoped>
-*{
-  overflow: hidden;
-}
+
 .v-application .rounded-bl-xl {
     border-bottom-left-radius: 300px !important;
     

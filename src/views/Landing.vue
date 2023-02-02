@@ -119,6 +119,7 @@
         }
         section{
             background-color: #879a02;
+            margin: 0px;
         }
         section img{
             position: absolute;
@@ -194,12 +195,13 @@
         #login{
             background-color: #879a02;
             padding-bottom: 10vh;
+            border: none;
         }
         
 </style>
 <template>
     <div id="body">
-    <header id="header">
+    <!-- <header id="header">
         <a href="#" class="logo">BEC SAM</a>
         <ul>
             <li><a href="#" class="active">Home</a></li>
@@ -207,7 +209,7 @@
             <li><a href="#">Students</a></li>
             <li><a href="clock.html">Settings</a></li>
         </ul>
-    </header>
+    </header> -->
     <section >
         <img src="../assets/images/bird1.png" :style="{top : this.value * -0.5 +'px',left : this.value * 1 + 'px'}" id="bird1" alt="">
         <img src="../assets/images/bird2.png" :style="{top : this.value * -0.5 +'px',left : this.value * -2.5 + 'px'}"  id="bird2" alt="">
@@ -228,16 +230,12 @@
                 <span  id="auto-type"  class="typing"></span> 
             </h2>
         </vue-typed-js>
-            
-
         <!-- <a href="#login" :style="{marginTop : this.value*1.5+'px'}" id="btn"> Login</a> -->
         <a href="#login"  id="btn"> Login</a>
         <img src="../assets/images/cable_cars.png" :style="{left : 50 + this.value* -0.2+'px'}"  id="cable" alt="">
         <img src="../assets/images/mobile2.png" :style="{left: -90 + value* 0.3+'px'}"  id="mobile2" alt="">
         <img src="../assets/images/mobile.png"   id="mobile" alt="">
-        
         <img src="../assets/images/tree.png"   id="tree" alt="">
-
     </section>
     <div id="login"><Login /></div>
 </div>

@@ -47,7 +47,7 @@ export default{
     },
     mounted() {
         if (!this.$store.getters.isTokenPresent("accessToken")) {
-            router.push({ name: "Login" });
+            router.push({ name: "Landing" });
         }
     },
     methods:{
