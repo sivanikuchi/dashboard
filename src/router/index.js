@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Landing from '../views/Landing.vue'
 import Home from '../views/Home.vue'
 import Settings from '../views/Settings.vue'
+import sample from '../views/sample.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -10,6 +11,11 @@ const routes = [
     path: '/',
     name: 'Landing',
     component: Landing
+  },
+  {
+    path: '/sample',
+    name: 'sample',
+    component: sample
   },
 
   {

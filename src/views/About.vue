@@ -18,15 +18,15 @@ import Sidebar from '../components/Sidebar.vue';
 import router from '../router';
 export default{
     name: "Home",
-    mounted() {
-        if (!this.$store.getters.isTokenPresent("accessToken")) {
-            router.push({ name: "Landing" });
-        }
-    },
+    // mounted() {
+    //     if (!this.$store.getters.isTokenPresent("accessToken")) {
+    //         router.push({ name: "Landing" });
+    //     }
+    // },
     methods: {
         logout() {
             this.$store.commit("destroyState");
-            router.push({ name: "Login" });
+            router.push({ name: "Landing" });
             return;
         },
         home() {
@@ -39,5 +39,6 @@ export default{
 <style>
 .about{
   padding: 10px;
+  
 }
 </style>

@@ -10,6 +10,9 @@ const state = {
   userRole:'',
   tokenExpiryDate: new Date(),
 };
+const sidebar = {
+  isMenuOpen : true,
+}
  
 const getters = {
   isTokenExpired: state => (new Date(state.tokenExpiryDate) < new Date()),
@@ -31,7 +34,9 @@ const getters = {
   getUserRole: (state) => {
     return state.userRole;
   },
-  
+  getIsMenuOpen: (sidebar) => {
+    return sidebar.isMenuOpen;
+  },
 };
  
 const actions = {
@@ -79,11 +84,15 @@ const mutations = {
 
   logout() {
     sessionStorage.clear();
+  },
+  setIsMenuOpen(sidebar, isOpened){
+    sidebar.isMenuOpen = isOpened;
   }
 };
 Vue.use(Vuex) 
 const store = new Vuex.Store({
  state,
+ sidebar,
  mutations,
  actions,
  getters,

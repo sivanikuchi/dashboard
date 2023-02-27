@@ -26,7 +26,7 @@
           class="bx"
           :class="isOpened ? 'bx-menu-alt-right' : 'bx-menu'"
           id="btn"
-          @click="isOpened = !isOpened"
+          @click="open"
         />
       </div>
   
@@ -41,7 +41,7 @@
           >
             <li
               v-if="isSearch"
-              @click="isOpened = true"
+              @click="openSearch"
             >
               <i class="bx bx-search" />
               <input
@@ -57,13 +57,13 @@
               :key="index"
             >
               <li>
-                <a :href="menuItem.link">
+                <RouterLink active-class="active" :to="menuItem.link">
                   <i
                     class="bx"
                     :class="menuItem.icon || 'bx-square-rounded'"
                   />
                   <span class="links_name">{{ menuItem.name }}</span>
-                </a>
+                </RouterLink>
                 <span class="tooltip">{{ menuItem.tooltip || menuItem.name }}</span>
               </li>
             </span>
@@ -107,14 +107,15 @@
   
   <script>
   import router from '../router';
+  // import {RouterLink} from 'vue-router';
     export default {
       name: 'Sidebar',
       props: {
         //! Menu settings
-        isMenuOpen: {
-          type: Boolean,
-          default: true,
-        },
+        // isMenuOpen: {
+        //   type: Boolean,
+        //   default: true,
+        // },
         menuTitle: {
           type: String,
           default: 'BEC SAM',
@@ -234,11 +235,11 @@
         //! Styles
         bgColor: {
           type: String,
-          default: '#11101d',
+          default: '#2196F3',
         },
         secondaryColor: {
           type: String,
-          default: '#1d1b31',
+          default: '#2196F3',
         },
         homeSectionColor: {
           type: String,
@@ -275,12 +276,12 @@
       },
       data() {
         return {
-          isOpened: false
+          isOpened: this.$store.getters.getIsMenuOpen
         }
       },
-      mounted() {
-        this.isOpened = this.isMenuOpen
-      },
+      // mounted() {
+      //   this.isOpened = this.$store.getters.getIsMenuOpen
+      // },
       computed: {
         cssVars() {
           return {
@@ -306,9 +307,19 @@
       methods:{
         logout() {
             this.$store.commit('destroyState');
-            router.push({ name: 'Login'});
+            router.push({ name: 'Landing'});
             return;
         },
+        open(){
+          this.isOpened = !this.isOpened
+          this.$store.commit('setIsMenuOpen', this.isOpened);
+          console.log(this.isOpened,this.$store.getters.getIsMenuOpen)
+        },
+        openSearch(){
+          this.isOpened = true
+          this.$store.commit('setIsMenuOpen', this.isOpened);
+          console.log(this.isOpened,this.$store.getters.getIsMenuOpen)
+        }
       }
     }
   </script>
@@ -444,6 +455,7 @@
       height: 50px;
       width: 100%;
       width: 50px;
+      left:50px;
       border: none;
       border-radius: 12px;
       transition: all 0.5s ease;
@@ -452,6 +464,8 @@
     .sidebar.open input {
       padding: 0 20px 0 50px;
       width: 100%;
+      background: var(--menu-items-hover-color);
+      color: var(--bg-color);
     }
     .sidebar .bx-search {
       position: absolute;
@@ -462,10 +476,14 @@
       background: var(--secondary-color);
       color: var(--icons-color);
     }
-    .sidebar.open .bx-search:hover {
+    .sidebar.open .bx-search{
+      background: var(--menu-items-hover-color);
+      color: var(--bg-color);
+    }
+    /* .sidebar.open .bx-search:hover {
       background: var(--secondary-color);
       color: var(--icons-color);
-    }
+    } */
     .sidebar .bx-search:hover {
       background: var(--menu-items-hover-color);
       color: var(--bg-color);
@@ -499,6 +517,20 @@
     .sidebar li a:hover .links_name,
     .sidebar li a:hover i {
       transition: all 0.5s ease;
+      color: var(--bg-color);
+    }
+    .sidebar .active{
+      background: var(--menu-items-text-color);
+    }
+    .sidebar .active .links_name,
+    .sidebar .active i{
+      color: var(--bg-color);
+    }
+    .sidebar.open .active{
+      background: var(--menu-items-text-color);
+    }
+    .sidebar.open .active .links_name,
+    .sidebar.open .active i{
       color: var(--bg-color);
     }
     .sidebar li i {

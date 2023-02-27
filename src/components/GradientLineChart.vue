@@ -51,7 +51,7 @@ export default {
         labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [
           {
-            label: "Mobile apps",
+            label: "Student present",
             tension: 0.4,
             borderWidth: 0,
             pointRadius: 0,
@@ -89,7 +89,7 @@ export default {
             ticks: {
               display: true,
               padding: 10,
-              color: "#fbfbfb",
+              color: "#272727",
               font: {
                 size: 11,
                 family: "Open Sans",
@@ -108,13 +108,14 @@ export default {
             },
             ticks: {
               display: true,
-              color: "#ccc",
+              color: "#272727",
               padding: 20,
               font: {
                 size: 11,
                 family: "Open Sans",
                 style: "normal",
                 lineHeight: 2,
+
               },
             },
           },
@@ -124,3 +125,12 @@ export default {
   },
 };
 </script>
+<style scoped>
+  .card{
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2),
+    0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 10px;
+    color :#272727;
+  }
+</style>

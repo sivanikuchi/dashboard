@@ -131,10 +131,10 @@
             pointer-events: none;
             
         }
-        #college{
-            width: 101%;
+        /* #college{
+            width: 100%;
             height: 101%;
-        }
+        } */
         #bird1,#bird2{
             z-index: 1;
         }
@@ -213,7 +213,7 @@
     <section >
         <img src="../assets/images/bird1.png" :style="{top : this.value * -0.5 +'px',left : this.value * 1 + 'px'}" id="bird1" alt="">
         <img src="../assets/images/bird2.png" :style="{top : this.value * -0.5 +'px',left : this.value * -2.5 + 'px'}"  id="bird2" alt="">
-        <img src="../assets/images/college.jpg"  id="college" alt="">
+        <img src="../assets/images/college.png"  id="college" alt="">
         <img src="../assets/images/skateboard1.png" :style="{left : 50+ this.value*-0.06+'%'}"  id="skateboard1" alt="">
         
         
@@ -235,7 +235,7 @@
         <img src="../assets/images/cable_cars.png" :style="{left : 50 + this.value* -0.2+'px'}"  id="cable" alt="">
         <img src="../assets/images/mobile2.png" :style="{left: -90 + value* 0.3+'px'}"  id="mobile2" alt="">
         <img src="../assets/images/mobile.png"   id="mobile" alt="">
-        <img src="../assets/images/tree.png"   id="tree" alt="">
+        <!-- <img src="../assets/images/tree.png"   id="tree" alt=""> -->
     </section>
     <div id="login"><Login /></div>
 </div>
